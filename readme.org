@@ -1,0 +1,43 @@
+#+title: alternative-spellings.el
+
+*alternative-spellings.el* is a package to save and return different predefined spellings for terms such as names, events or locations. The main usage is for search engines such as Google that accept the "OR" operator. All alternative spellings are copied to the kill ring / clipboard.
+
+** Change log
+
+*0.1*
+- first public version
+
+** Installation
+
+Either clone the repository:
+
+=git clone https://github.com/rtrppl/alternative-spellings=
+
+and load the package by adding it to your .emacs or init.el:
+
+#+begin_src elisp
+(load "/path/to/alternative-spellings/alternative-spellings.el") 
+#+end_src
+
+or use straight / other package managers:
+
+#+begin_src elisp
+(use-package alternative-spellings
+  :straight (:host github :repo "rtrppl/alternative-spellings")
+  :bind
+  (:map global-map
+	("C-c d a a" . alternative-spellings)
+	("C-c d a c" . alternative-spellings-copy)
+	("C-c d a n" . alternative-spelling-add-new-spellings)
+	("C-c d a r" . alternative-spelling-remove-spellings)))
+#+end_src
+
+The above keybindings are also the ones I would suggest.
+
+** Functions
+
+There are four user-facing functions of alternative-spellings:
+
+=alternative-spellings= will copy all alternative spellings in quotation marks (and separated with an OR) to the clipboard. For example ="Winnie the Pooh" OR "Winnie Puuh" OR "习近平" OR "Xi Jinping"= for [[https://en.wikipedia.org/wiki/Censorship_of_Winnie-the-Pooh_in_China][Xi Jinping]]. =alternative-spellings-copy= will copy only one selected alternative spelling to the clipboard, for example =Владимир Путин= for Putin.
+
+Alternative spellings must be manually defined before. For this one should use =alternative-spelling-add-new-spellings= and =alternative-spelling-remove-spellings=. The list is stored in a local JSON file. 
