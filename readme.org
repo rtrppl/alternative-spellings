@@ -1,6 +1,6 @@
 #+title: alternative-spellings.el
 
-*alternative-spellings.el* is a package to save and return different predefined spellings for terms such as names, events or locations. The main usage is for search engines such as Google that accept the "OR" operator. All alternative spellings are copied to the kill ring / clipboard.
+*alternative-spellings.el* is a package to create and copy predefined alternative spellings for terms such as names, events or locations. The main usage is for search engines such as Google that accept the "OR" operator. All alternative spellings are copied to the kill ring / clipboard.
 
 ** Change log
 
